@@ -3,8 +3,8 @@
 SAMPLE
 ----------------------------------------
 
-Challenge: Write function named test that returns the string "This Works!". 
-Solution: This one has already been complete for you. 
+Challenge: Write function named test that returns the string "This Works!".
+Solution: This one has already been complete for you.
 
 */
 
@@ -25,9 +25,13 @@ Write function named sum that will take an array of numbers and return the sum o
 Example: if you pass it [1,2,3] then it should return 6 (which is 1 + 2 + 3)
 */
 
-
-
-
+function sum(array){
+  let total = 0;
+  array.forEach((ele)=>{
+    total += ele;
+  })
+  return total;
+}
 
 
 
@@ -44,6 +48,12 @@ Example: if you pass it [1,2,3] then it should return [2,4,6]
 */
 
 
+function doubleNumbers(array) {
+  let newArry = array.map((ele)=>{
+    return ele * 2
+  })
+  return newArry;
+}
 
 
 
@@ -66,7 +76,12 @@ Examples:
 */
 
 
-
+function multiplyNumbers(array, val) {
+  let newArry = array.map((ele)=>{
+    return ele * val
+  })
+  return newArry;
+}
 
 
 
@@ -83,7 +98,15 @@ Write function named doubleLetters that will take a string and double every lett
 Example: if you pass it "abc" then it should return "aabbcc"
 */
 
-
+function doubleLetters(string) {
+  let array = string.split('')
+  let newArry = []
+  array.forEach((ele, i)=>{
+    newArry.push(ele);
+    newArry.push(ele);
+  });
+  return newArry.join('')
+}
 
 
 
@@ -103,8 +126,14 @@ Example: if you pass it ["a", "b", "c"] and ["d", "e", "f"] then it should retur
 
 NOTE: you can assume each input will be the same length
 */
-
-
+function interleave(arr1, arr2) {
+  let newArray = [];
+  arr1.forEach((ele, i)=>{
+    newArray.push(ele)
+    newArray.push(arr2[i])
+  })
+  return newArray;
+}
 
 
 
@@ -124,8 +153,16 @@ Write function named createRange that will take a number and a default value and
 Example: if you pass it 4 and "Hello" then it should return ["Hello", "Hello", "Hello", "Hello"]
 */
 
-
-
+function createRange(range , val, array=[]){
+  if(val === undefined){
+    return [];
+  }else if(range === 0){
+    return array
+  }else{
+    array.push(val)
+    return createRange(range-1, val, array)
+  }
+}
 
 
 
@@ -143,8 +180,13 @@ Example:
 If you pass it ["quick", "brown", "fox"] then it should return { "quick": 0, "brown": 1, "fox": 2 }
 */
 
-
-
+function flipArray(array) {
+  let obj = {};
+  array.forEach((ele, i)=>{
+    obj[ele] = i
+  })
+  return obj;
+}
 
 
 
@@ -164,7 +206,14 @@ If you pass it [[2014, "Horse"], [2015, "Sheep"]] then it should return { 2014: 
 */
 
 
-
+function arraysToObject(array) {
+  let obj = {}
+  array.forEach((ele)=>{
+    let [a, b] = ele;
+    obj[a] = b;
+  })
+  return obj;
+}
 
 
 
@@ -183,7 +232,13 @@ Example:
 If you pass it "hello" then it should return "olleh"
 */
 
-
+function reverseString(string) {
+  let newstring = ''
+  for (let i = 0; i < string.length; i++){
+    newstring += string[(string.length-1)-i]
+  }
+  return newstring
+}
 
 
 
@@ -794,4 +849,4 @@ If you pass {1999: 4036, 2000: 7654} and 4036, it should return true
 
 
 
-// 
+//
